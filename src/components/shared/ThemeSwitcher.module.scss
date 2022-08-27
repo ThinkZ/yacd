@@ -1,0 +1,58 @@
+[data-reach-menu-button] {
+  --sz: 40px;
+
+  width: var(--sz);
+  height: var(--sz);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-appearance: none;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  color: var(--color-btn-fg);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 20px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:focus {
+    border-color: var(--color-focus-blue);
+  }
+}
+
+[data-reach-menu-list] {
+  background: var(--bg-tooltip);
+  color: var(--color-text);
+  border: 1px solid #555;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+[data-reach-menu-item] {
+  padding: 5px 16px 5px 6px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+[data-reach-menu-item][data-selected] {
+  background: var(--color-focus-blue);
+  color: #f7f7f7;
+}
+
+.checkWrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 2px;
+  visibility: hidden;
+  &.active {
+    visibility: visible;
+  }
+}

@@ -1,0 +1,34 @@
+.updatedAt {
+  margin-bottom: 12px;
+  small {
+    color: #777;
+  }
+}
+
+.main {
+  padding: 10px 15px;
+  @media (--breakpoint-not-small) {
+    padding: 10px 40px;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.action {
+  margin: 0 5px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  place-items: center;
+}
+
+.refresh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

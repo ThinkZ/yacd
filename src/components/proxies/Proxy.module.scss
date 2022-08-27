@@ -1,0 +1,101 @@
+.proxy {
+  margin: 3px;
+  padding: 5px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  outline: none;
+  border: 1px solid transparent;
+  &:focus {
+    border: 1px solid var(--color-focus-blue);
+  }
+
+  max-width: 200px;
+  @media (--breakpoint-not-small) {
+    min-width: 200px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  background-color: var(--color-bg-proxy);
+  &.now {
+    background-color: var(--color-focus-blue);
+    color: #ddd;
+  }
+  &.error {
+    opacity: 0.5;
+  }
+  &.selectable {
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      border-color: hsl(0deg, 0%, var(--card-hover-border-lightness));
+    }
+  }
+}
+
+.proxyType {
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  margin-right: 3px;
+  @media (--breakpoint-not-small) {
+    font-size: 0.85em;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.proxyName {
+  width: 100%;
+  margin-bottom: 5px;
+  font-size: 0.85em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proxySmall {
+  --size: 13px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: relative;
+
+  &.now {
+    --size: 15px;
+    &:before {
+      --size-dot: 7px;
+      content: '';
+      position: absolute;
+      width: var(--size-dot);
+      height: var(--size-dot);
+      background-color: #fff;
+      // For non-primitive proxy type like "Selector", "LoadBalance", "DIRECT", etc. we are using a transparent
+      // background, and this selected indicator has a white background. In "light" them mode, the constrast
+      // between the bg of the indicator and the "background" is too small. In that case we want to add a
+      // border around this indicator so it's more distinguishable.
+      border: 1px solid var(--color-proxy-dot-selected-ind-bo);
+      border-radius: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.selectable {
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
